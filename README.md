@@ -25,6 +25,9 @@ func main() {
 ```
 
 ## Generating .eenv File From .env
+
+- Use to obfuscate your .env file
+
 ```
 go run main.go -envenc yes
 ```
@@ -39,5 +42,26 @@ Result:
 3. Writing encoded content to .eenv file...
 ==================================
 == END: Encoding .env file      ==
+==================================
+```
+
+## Generating .denv File From .eenv
+
+- Use to deobfuscate your .eenv file so that you can update the content
+
+```
+go run main.go -envdec yes
+```
+
+Result:
+```
+==================================
+== START: Decoding .eenv file   ==
+==================================
+1. Reading .eenv file...
+2. Decoding contents ...
+3. Writing decoded content to .denv file...
+==================================
+== END: Decoding .eenv file     ==
 ==================================
 ```
