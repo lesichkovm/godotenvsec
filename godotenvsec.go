@@ -43,7 +43,7 @@ func EnvEncode() {
 	v, err := ioutil.ReadFile(".env")
 
 	if err != nil {
-		fmt.Println("Could not read .env file")
+		log.Panic("Could not read .env file")
 	}
 
 	fmt.Println("2. Encoding contents with random key ...")
@@ -78,7 +78,7 @@ func EnvDecode() {
 	v, err := ioutil.ReadFile(".eenv")
 
 	if err != nil {
-		fmt.Println("Could not read .eenv file")
+		log.Panic("Could not read .eenv file")
 	}
 
 	fmt.Println("2. Decoding contents ...")
