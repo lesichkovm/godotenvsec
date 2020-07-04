@@ -121,8 +121,6 @@ func eenvToStr() string {
 		fmt.Println("Could not read .eenv file")
 	}
 
-	fmt.Println("2. Decoding contents ...")
-
 	fileContents := string(v)
 
 	splits := strings.Split(fileContents, "_")
@@ -169,13 +167,13 @@ func Init() {
 
 	res, err := godotenv.Unmarshal(env)
 
-	// godotenv.Marshal(res)
 	godotenv.Write(res, ".tempenv")
 
 	err = godotenv.Load(".tempenv")
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-
+	
 	os.Remove(".tempenv")
+	
+	if err != nil {
+	    log.Fatal("Error loading .env file")
+	}
 }
