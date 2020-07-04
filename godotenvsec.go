@@ -167,8 +167,6 @@ func Init() {
 
 	env := eenvToStr()
 
-	fmt.Println(env)
-
 	res, err := godotenv.Unmarshal(env)
 
 	// godotenv.Marshal(res)
