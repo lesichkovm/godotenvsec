@@ -1,6 +1,6 @@
 # GoDotEnvSec
 
-The GoDotEnvSec package creates and loads env vars from an obfuscated .eenv file.
+The GoDotEnvSec package loads env vars from an obfuscated .eenv file. It will also help to create an .eenv file and update it later when something changes
 
 # Install
 
