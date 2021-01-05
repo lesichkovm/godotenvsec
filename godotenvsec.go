@@ -43,7 +43,7 @@ func EnvEncode() {
 	v, err := ioutil.ReadFile(".env")
 
 	if err != nil {
-		log.Panic("Could not read .env file")
+		fmt.Println("Could not read .env file")
 	}
 
 	fmt.Println("2. Encoding contents with random key ...")
@@ -78,7 +78,7 @@ func EnvDecode() {
 	v, err := ioutil.ReadFile(".eenv")
 
 	if err != nil {
-		log.Panic("Could not read .eenv file")
+		fmt.Println("Could not read .eenv file")
 	}
 
 	fmt.Println("2. Decoding contents ...")
@@ -118,8 +118,10 @@ func eenvToStr() string {
 	v, err := ioutil.ReadFile(".eenv")
 
 	if err != nil {
-		fmt.Println("Could not read .eenv file")
+		log.Panic("Could not read .eenv file")
 	}
+
+	fmt.Println("2. Decoding contents ...")
 
 	fileContents := string(v)
 
@@ -165,15 +167,17 @@ func Init() {
 
 	env := eenvToStr()
 
+	fmt.Println(env)
+
 	res, err := godotenv.Unmarshal(env)
 
+	// godotenv.Marshal(res)
 	godotenv.Write(res, ".tempenv")
 
 	err = godotenv.Load(".tempenv")
-	
-	os.Remove(".tempenv")
-	
 	if err != nil {
-	    log.Fatal("Error loading .env file")
+		log.Fatal("Error loading .env file")
 	}
+
+	os.Remove(".tempenv")
 }
